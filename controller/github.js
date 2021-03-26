@@ -1,6 +1,10 @@
 const fetch = require('node-fetch');
 const moment = require('moment');
 
+
+// Precondition: internet is working well and github server doesn't down.
+// Postcondition: return array contain contian pure response fetched from api,
+// and array have all language and their repos. 
 const get_data_from_github = async () => {
     try {
         const date = getting_date();
@@ -9,16 +13,16 @@ const get_data_from_github = async () => {
         );
         if (response.status == 200) {
             const response_list = await response.json();
-            const list_without_null_language = await filtering(null, response_list.items);
-            const customized_list = await format_response(list_without_null_language);
-            const unique_list = await set_of_language(customized_list);
-            const language_list = await list_of_repos(list_without_null_language, unique_list);
-            console.log(language_list);
+            const customized_list =  format_response(response_list.items);
+            const list_without_null_language =  filtering(null, customized_list);
+            const unique_list =  set_of_language(customized_list);
+            const language_list =  list_of_repos(list_without_null_language, unique_list);
+            return { response_list, language_list }
         } else {
             throw Error('Cannot reach this server right now');
         }
     } catch (err) {
-        throw new Error(err);
+        throw Error(err);
     }
 }
 
@@ -57,7 +61,7 @@ const set_of_language = (list) => {
 
 
 // Precondition: list and target not have a null elementm,
-// and both is arrays and target should have unique element.
+// and both are arrays and target should have unique element.
 // Postcondition: return new array with properties for every language,
 // such as language name and number of repos and repos use this language. 
 const list_of_repos = (list, target) => {

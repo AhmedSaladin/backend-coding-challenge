@@ -1,14 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const { response_list, language_list } = require('../controller/home');
 
 
 
 router
-    .get('/')
-    .get('/languagelist')
-
-
-
-
-
+    .get('/', response_list)
+    .get('/languagelist', language_list);
 module.exports = router;

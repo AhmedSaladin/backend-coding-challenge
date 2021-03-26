@@ -1,7 +1,7 @@
 {
   "name": "backend-coding-challenge",
   "version": "1.0.0",
-  "description": "",
+  "description": "Solution of gemography backend-coding-challeng.",
   "main": "app.js",
   "scripts": {
     "test": "nodemon app",
