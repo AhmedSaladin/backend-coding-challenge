@@ -4,13 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon app",
+    "start": "node app"
   },
   "keywords": [],
   "author": "Ahmed Saladin <ahmed_salahdin@hotmail.com>",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "node-fetch": "^2.6.1"
   }
 }
