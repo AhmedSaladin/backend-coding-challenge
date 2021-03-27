@@ -16,6 +16,9 @@ and most starred repos created in the last 30 days ( from now ) in descending  o
      after port will appear default port number in your environment or 3000.
 ## API List
 - ```localhost:port\``` display pure response from github in json format.
+    - <img src="./src/home.PNG">
 - ```localhost:port\languagelist``` display languages list and it formated as object for every language and contain {```name: language name ,
 count: repos number, 
 items: language repos```}
+    - <img src="./src/languagelist.PNG">
+
